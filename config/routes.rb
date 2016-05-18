@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'edit' => 'users#edit'
   get 'show' => 'users#show'
   get 'new' => 'users#show'
+  get 'comment' => 'microposts#show'
   #get 'edit_user' => 'users#edit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

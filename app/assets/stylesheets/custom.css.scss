@@ -64,6 +64,11 @@ p {
     line-height: 1.7em;
    }
 
+/* Info pages */
+info {
+  width: 50%
+}
+
 /* header */
 
 #logo {
@@ -76,10 +81,14 @@ p {
   padding-top: 9px;
   font-weight: bold;
 &:hover {
-  color: #fff;
+  color: black;
+  background-color: white;
   text-decoration: none;
+  padding-top: 5px;
 }
 }
+
+
 
 /* footer */
 

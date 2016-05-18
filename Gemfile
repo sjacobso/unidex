@@ -7,10 +7,11 @@ gem 'rails', '4.2.4'
 gem 'bcrypt', '3.1.7'
 #creating sample users in production
 gem 'faker', '1.4.2'
+
 #allows for lists to show up on multiple pages
 gem 'will_paginate', '3.0.7'
 #allows things to be commentable
-gem 'acts_as_commentable', '3.0.1'
+gem 'acts_as_commentable_with_threading'
 #bootstrap compatible pagination
 gem 'bootstrap-will_paginate', '0.0.10'
 #bootstrap
@@ -55,10 +56,5 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :production do
-gem 'pg', '0.17.1'
-gem 'rails_12factor', '0.0.2'
 end
 

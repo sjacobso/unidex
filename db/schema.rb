@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517193255) do
+ActiveRecord::Schema.define(version: 20160517223320) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
     t.text     "body"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id"
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160517193255) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
+    t.text     "school"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
