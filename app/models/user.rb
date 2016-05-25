@@ -7,16 +7,16 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token 
 	before_save :downcase_email 
-  before_create :create_activation_digest
+  #before_create :create_activation_digest
   
 	validates :name, presence: true, length: { maximum:50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  after_create :send_activation_email
+  #after_create :send_activation_email
   
    has_secure_password
    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
@@ -54,9 +54,7 @@ class User < ActiveRecord::Base
   end
 
   # Sends activation email.
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
+  
 
     def feed
       following_ids = "SELECT followed_id FROM relationships
@@ -86,8 +84,5 @@ class User < ActiveRecord::Base
       self.email=email.downcase
     end
 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+    
 end
